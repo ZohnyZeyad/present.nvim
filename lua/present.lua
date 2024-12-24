@@ -83,7 +83,7 @@ local create_window_configurations = function()
 
     body = {
       relative = "editor",
-      width = width - 8,
+      width = math.floor(width * 0.8),
       height = body_height,
       col = 8,
       row = 4,
@@ -177,6 +177,10 @@ M.start_presentation = function(opts)
     cmdheight = {
       original = vim.o.cmdheight,
       present = 0
+    },
+    wrap = {
+      original = vim.o.wrap,
+      present = true
     }
   }
 
@@ -218,8 +222,6 @@ M.start_presentation = function(opts)
 
   set_slide_content(1)
 end
-
--- M.start_presentation { bufnr = 16 }
 
 M._parse_slides = parse_slides
 
